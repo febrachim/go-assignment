@@ -1,0 +1,495 @@
+/* import only the necessary Bootstrap files */
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+/* ------- Bootstrap Styles Customization-------- */
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active,
+a:focus {
+    background-color: transparent;
+}
+
+// Defining breakpoints values
+$screen-sm-min: 576px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 768px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 992px;
+$screen-md-max: ($screen-lg-min - 1);
+$screen-xl-min: 1200px;
+$screen-lg-max: ($screen-xl-min - 1);
+//custom for btn
+$go-dark: rgba(0, 0, 0, 0.35);
+$theme-colors: ( primary: $green, secondary: $go-dark);
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    min-height: 100vh;
+}
+
+.navbar-gojek {
+    border-bottom: 1px solid rgb(255, 255, 255);
+    font-size: 1rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    max-width: unset;
+    background-color: #fff;
+    transition: all 0.3s;
+    height: 80px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    a {
+        color: #1c1d1d !important;
+        transition: color .5s ease-in-out;
+        text-decoration: none;
+        transition: all 0.25s ease-in-out;
+        &:hover {
+            color: $green !important;
+        }
+    }
+    .navbar-gojek__menu-title {
+        color: #1c1d1d;
+        font-family: "MaisonNeue-Book", sans-serif;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    ul.navbar-gojek__sub-item {
+        position: relative;
+        list-style-type: none;
+        margin: 0 0 25px;
+        padding: 24px 0 0;
+    }
+    ul.navbar-gojek__sub-item:nth-child(n+1):after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 159px;
+        background-color: #bbb;
+        bottom: 0;
+        left: 0;
+    }
+    ul.navbar-gojek__sub-item li {
+        padding-bottom: 24px;
+        margin: 0;
+    }
+    .show>.dropdown-menu {
+        max-height: 600px;
+        visibility: visible;
+    }
+    .dropdown-menu {
+        margin: 0;
+        border-radius: 0;
+        display: block;
+        z-index: -100;
+        max-height: 600px;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        overflow-y: scroll;
+        border: none;
+        outline: none !important;
+        .dropdown-item {
+            position: relative;
+            padding: 0;
+            max-height: 600px;
+            background-color: #F7F7F7;
+            &:active {
+                color: #1c1d1d;
+            }
+        }
+    }
+}
+
+footer {
+    margin-top: 150px;
+    background-color: #1c1d1d;
+    min-height: 38vh;
+    color: #fff;
+    padding: 16px;
+    a {
+        font-family: "MaisonNeue-Book", sans-serif;
+        text-decoration: none;
+        opacity: .8;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: normal;
+        color: #ffffff;
+        &:hover {
+            text-decoration: none;
+            color: #ffffff;
+        }
+    }
+}
+
+
+/* CSS used here will be applied after bootstrap.css */
+
+.hero {
+    position: relative;
+    .container-fluid {
+        position: relative;
+    }
+    .hero__cta {
+        position: absolute;
+        background: none;
+        h1 {
+            color: #ffffff;
+            font-family: "MaisonNeueExtended-Bold", sans-serif;
+            line-height: 1.2;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        p.quote {
+            color: #ffffff;
+            font-family: "MaisonNeue-Book", sans-serif;
+            line-height: 1.2;
+            font-size: 1.25rem;
+        }
+        p.tagline {
+            color: #f0b323;
+            font-family: "MaisonNeue-Demi", sans-serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+        a {
+            border-radius: 24px;
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+            font-family: "MaisonNeue-Demi", sans-serif;
+            color: #ffffff;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            &:hover {
+                background-color: $white;
+                color: $green;
+            }
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        .hero__cta {
+            left: 10%;
+            top: 0;
+            height: 100%;
+            width: 40%;
+        }
+    }
+    @media (max-width: $screen-sm-max) {
+        .hero__cta {
+            left: 0;
+            top: 52%;
+            height: 45%;
+            width: 100%;
+            padding: 0 25px;
+            h1 {
+                text-align: center;
+                font-size: 1.75rem;
+            }
+            p.tagline {
+                text-align: center;
+                line-height: 1.2;
+                font-size: 1.25rem;
+            }
+            a {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.featured {
+    .featured__img {
+        border-radius: 16px;
+    }
+    .featured__content {
+        align-items: center;
+        display: grid;
+        justify-items: center;
+        h2 {
+            color: #1c1d1d;
+            font-family: "MaisonNeueExtended-Bold", sans-serif;
+            font-size: 32px;
+        }
+        p {
+            color: #494a4a;
+            font-family: "MaisonNeue-Book", sans-serif;
+            font-size: 1rem;
+        }
+        .featured__link {
+            width: 100%;
+            .inner {
+                background: $green;
+                color: $green;
+                width: 100%;
+                clip-path: inset(0% 100% 90% 0%);
+                transition: clip-path 0.25s ease-in-out;
+            }
+            a {
+                color: $green;
+                font-family: "MaisonNeue-Demi", sans-serif;
+                text-decoration: none;
+            }
+            &:hover .inner {
+                clip-path: inset(0% 78% 90% 0%);
+            }
+        }
+    }
+}
+
+.featured-slider {
+    @media (max-width: $screen-sm-max) {
+        img {
+            border-radius: 16px;
+            height: 220px;
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        img {
+            border-radius: 32px;
+            height: 480px;
+        }
+    }
+}
+
+.go-features {
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    h2,
+    h3 {
+        color: #1c1d1d;
+        font-family: "MaisonNeueExtended-Bold", sans-serif;
+    }
+    h2 {
+        font-size: 37px;
+    }
+    h3 {
+        font-size: 32px;
+    }
+    p {
+        color: #494a4a;
+        font-family: "MaisonNeue-Book", sans-serif;
+        line-height: 1.33;
+        font-size: 1rem;
+    }
+    .card {
+        height: 90%;
+        word-wrap: break-word;
+        border-radius: 16px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.25s ease-in-out;
+        &:hover {
+            box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+    .slick-track {
+        display: flex;
+    }
+    .slick-slide {
+        height: inherit;
+    }
+    .left-align-slick>.slick-list>.slick-track {
+        margin-left: 0;
+    }
+}
+
+.howto-gobox {
+    h2 {
+        font-family: "MaisonNeueExtended-Bold", sans-serif;
+        font-size: 37px;
+        color: #1c1d1d;
+        line-height: 1.41;
+    }
+    .howto-gobox__step {
+        background: none;
+        padding: 1em 0 0 1em;
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+        transition: clip-path 0.25s ease-in-out;
+        h3 {
+            font-family: "MaisonNeueExtended-Bold", sans-serif;
+            font-size: 21px;
+            line-height: 1.43;
+            margin-bottom: 0;
+            color: #1c1d1d;
+        }
+        p {
+            font-family: "MaisonNeue-Book", sans-serif;
+            font-size: 0.95em;
+            color: #1c1d1d;
+        }
+        .inner {
+            position: relative;
+            z-index: 1;
+            .numberCircle {
+                border-radius: 100%;
+                width: 30px;
+                height: 30px;
+                padding: 12px 0;
+                background: $green;
+                border: none;
+                text-align: center;
+                font-size: 1em;
+                color: #ffffff;
+                font-family: "MaisonNeue-Book", sans-serif;
+                font-weight: 600;
+                line-height: 0.5em;
+                transition: all 0.25 ease-in-out;
+            }
+        }
+        .shade {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background: #33bb42;
+            clip-path: circle(0% at 0% 0%);
+            transition: clip-path 0.25s ease-in-out;
+        }
+        &:hover .shade {
+            clip-path: circle(200% at 0% 0%);
+        }
+        &:hover .inner {
+            .numberCircle {
+                background: #ffffff;
+                color: #494a4a;
+            }
+        }
+        &:hover h3,
+        &:hover p {
+            color: #ffffff;
+        }
+    }
+    .howto-gobox__step.slick-current {
+        background: $green;
+        h3 {
+            color: #ffffff;
+        }
+        p {
+            color: #ffffff;
+        }
+        .inner {
+            .numberCircle {
+                background: #ffffff;
+                color: #494a4a;
+            }
+        }
+    }
+}
+
+.region-gobox {
+    h2 {
+        font-size: 37px;
+    }
+    .regions-gobox__subtitle {
+        font-family: "MaisonNeue-Book", sans-serif;
+        color: #494a4a;
+        line-height: 1.33;
+        font-size: 18px;
+    }
+}
+
+.why-gobox {
+    h2 {
+        font-size: 37px;
+    }
+    .why-gobox__blurb {
+        text-align: center;
+        img {
+            margin-bottom: 2rem;
+        }
+        h3 {
+            line-height: 1.33;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        p {
+            line-height: 1.33;
+            font-size: 18px;
+        }
+    }
+}
+
+.gobox-join {
+    position: relative;
+    .container {
+        position: relative;
+    }
+    img {
+        border-radius: 16px;
+    }
+    .gobox-join__cta {
+        position: absolute;
+        background: none;
+        h2 {
+            color: #ffffff;
+            font-family: "MaisonNeueExtended-Bold", sans-serif;
+        }
+        p {
+            color: #ffffff;
+            font-family: "MaisonNeue-Book", sans-serif;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+        a {
+            border-radius: 24px;
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+            font-family: "MaisonNeue-Demi", sans-serif;
+            color: #ffffff;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            &:hover {
+                background-color: $white;
+                color: $green;
+            }
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        .gobox-join__cta {
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 50%;
+        }
+    }
+    @media (max-width: $screen-sm-max) {
+        .gobox-join__cta {
+            left: 0;
+            top: 50%;
+            height: 35%;
+            width: 100%;
+            padding: 0 25px;
+            h2 {
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+/* ------- End Customization-------- */
+
+
+/* finally, import Bootstrap to set the changes! */
+
+@import "bootstrap/bootstrap";
+
+/* Custom Styles */
